@@ -23,7 +23,7 @@ function SignUp() {
           <p onClick={()=> nameChange2(setPlace, setName)}>Individual</p>
           <p onClick={()=> nameChange(setPlace, setName)}>Business</p>
         </div>
-        <form action="" onSubmit={(e)=> handleSubmit(e,link1, setWarning, setInput, setStyle, setStyle1, setStyle2, setStyle3, setInput1, setInput2, setInput3)}>
+        <form action="" onSubmit={()=> link1("/Account/Signup/Welcome")}>
           <input type="text" name={name} id="1" placeholder= {place} style={style1} onInput={(e)=>inputVal(e, setInput1, setStyle1, warning)}/>
           {input1}
           <input type="email" name="Email" id="2" placeholder='Email' style={style2} onInput={(e)=>inputVal(e,setInput2, setStyle2, warning)}/>
