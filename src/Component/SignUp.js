@@ -18,37 +18,37 @@ function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const dataBase = {Username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder}
-    if (e.target[3].value.length < 8) {
-        setWarning(true)
-        setInput(<small style={{color:"red"}}>Password must exceed 8 characters</small>)
-        setStyle({border: "1px solid red"})
-        if (e.target[3].value === "") {
-            setInput(<small style={{color:"red"}}>Password cannot be empty</small>)
-        }
-    }else{
-        setWarning(false)
-        setStyle({})
-    }
-    if (!e.target[0].value) {
-        setInput1(<small style={{color:"red"}}>{e.target[0].placeholder} cannot be empty</small>)
-        setStyle1({border: "1px solid red"})
-    }
-    if (!e.target[1].value) {
-        setInput2(<small style={{color:"red"}}>Email cannot be empty</small>)
-        setStyle2({border: "1px solid red"})
-    }
-    if (!e.target[2].value) {
-        setInput3(<small style={{color:"red"}}>Phone Number cannot be empty</small>)
-        setStyle3({border: "1px solid red"})
-    }
-    if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length > 8) {
-        const data = JSON.stringify(dataBase)
-        localStorage.setItem("UserData", data)
-        setTimeout(() => {
-            link1("/Account/SignUp/Welcome")
-        }, 600);
-    }
+    // const dataBase = {Username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder}
+    // if (e.target[3].value.length < 8) {
+    //     setWarning(true)
+    //     setInput(<small style={{color:"red"}}>Password must exceed 8 characters</small>)
+    //     setStyle({border: "1px solid red"})
+    //     if (e.target[3].value === "") {
+    //         setInput(<small style={{color:"red"}}>Password cannot be empty</small>)
+    //     }
+    // }else{
+    //     setWarning(false)
+    //     setStyle({})
+    // }
+    // if (!e.target[0].value) {
+    //     setInput1(<small style={{color:"red"}}>{e.target[0].placeholder} cannot be empty</small>)
+    //     setStyle1({border: "1px solid red"})
+    // }
+    // if (!e.target[1].value) {
+    //     setInput2(<small style={{color:"red"}}>Email cannot be empty</small>)
+    //     setStyle2({border: "1px solid red"})
+    // }
+    // if (!e.target[2].value) {
+    //     setInput3(<small style={{color:"red"}}>Phone Number cannot be empty</small>)
+    //     setStyle3({border: "1px solid red"})
+    // }
+    // if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length > 8) {
+    //     const data = JSON.stringify(dataBase)
+    //     localStorage.setItem("UserData", data)
+    // }
+    setTimeout(() => {
+      link1("/Account/SignUp/Welcome")
+  }, 600);
 }
   return (
     <div className='signUp'>
