@@ -8,6 +8,8 @@ import Trade from './Component/Trade'
 import Login from './Component/Login'
 import Register from './Component/SignUpDiv'
 import MainApp from './MainApp'
+import Welcome from './Component/Welcome';
+import SignUp from './Component/SignUp'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -16,7 +18,10 @@ root.render(
       <Routes>
         <Route index element={<Home/>}/>
         <Route path='/Account' element={<Account/>}>
-          <Route path='/Account/SignUp/*' element={<Register/>}/>
+          <Route path='/Account/SignUp' element={<Register/>}>
+          <Route index element={<SignUp/>}/>
+          <Route path='/Account/SignUp/Welcome' element={<Welcome/>}/>
+          </Route>
           <Route path='/Account/Login' element={<Login/>}/>
           <Route path='/Account/Trade' element={<Trade/>}/>
           <Route index element= {<Navigate to='/Account/SignUp' />} />
