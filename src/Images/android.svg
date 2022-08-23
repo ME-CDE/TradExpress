@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="44" viewBox="0 0 150 44">
+  <g id="Group_69" data-name="Group 69" transform="translate(-216 -655)">
+    <g id="Path_10884" data-name="Path 10884" transform="translate(216 655)" fill="none">
+      <path d="M4,0H146a4,4,0,0,1,4,4V40a4,4,0,0,1-4,4H4a4,4,0,0,1-4-4V4A4,4,0,0,1,4,0Z" stroke="none"/>
+      <path d="M 4 0.5 C 2.070098876953125 0.5 0.5 2.070098876953125 0.5 4 L 0.5 40 C 0.5 41.92990112304688 2.070098876953125 43.5 4 43.5 L 146 43.5 C 147.9299011230469 43.5 149.5 41.92990112304688 149.5 40 L 149.5 4 C 149.5 2.070098876953125 147.9299011230469 0.5 146 0.5 L 4 0.5 M 4 0 L 146 0 C 148.2091369628906 0 150 1.790859222412109 150 4 L 150 40 C 150 42.20914077758789 148.2091369628906 44 146 44 L 4 44 C 1.790863037109375 44 0 42.20914077758789 0 40 L 0 4 C 0 1.790859222412109 1.790863037109375 0 4 0 Z" stroke="none" fill="#fff"/>
+    </g>
+    <text id="Get_on_" data-name="Get on " transform="translate(262 669)" fill="#fff" font-size="10" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Get on </tspan></text>
+    <g id="Group_53" data-name="Group 53" transform="translate(-5 1.089)">
+      <path id="Path_207" data-name="Path 207" d="M12.387,13.689a3.181,3.181,0,0,0-.128.886V41.711a3.227,3.227,0,0,0,.125.875l15.23-14.429Z" transform="translate(220.735 647.773)" fill="#00d8fe"/>
+      <path id="Path_208" data-name="Path 208" d="M45.838,10.345,28.056.454a2.6,2.6,0,0,0-2-.39L41.354,14.6Z" transform="translate(206.916 661.492)" fill="#00ef75"/>
+      <path id="Path_209" data-name="Path 209" d="M186.647,105.46l-4.312-2.4-4.417,4.183,4.5,4.276,4.2-2.3C188.661,108.05,187.914,106.171,186.647,105.46Z" transform="translate(70.246 568.782)" fill="#fec900"/>
+      <path id="Path_210" data-name="Path 210" d="M25.65,171.773a2.557,2.557,0,0,0,2.022-.372l17.673-9.7-4.524-4.3Z" transform="translate(207.508 518.511)" fill="#ee2f4b"/>
+    </g>
+    <text id="Google_Play" data-name="Google Play" transform="translate(262 688)" fill="#fff" font-size="18" font-family="Roboto-Regular, Roboto"><tspan x="0" y="0">Google Play</tspan></text>
+  </g>
+</svg>
