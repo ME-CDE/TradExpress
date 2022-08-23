@@ -1,9 +1,14 @@
 import React from 'react'
-import {Outlet} from 'react-router-dom';
+import SignUp from './SignUp'
+import {Routes,Route} from 'react-router-dom';
+import Welcome from './Welcome';
 const SignUpDiv = () => {
   return (
     <div>
-        <Outlet/>
+        <Routes>
+        <Route index element={<SignUp/>}/>
+        <Route path='/Account/SignUp/Welcome' element={<Welcome/>}/>
+        </Routes>
     </div>
   )
 }
