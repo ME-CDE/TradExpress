@@ -1,17 +1,16 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import {strength, inputVal, nameChange, nameChange2} from './logic'
+import {nameChange, nameChange2} from './logic'
 function SignUp() {
   let link1 = useNavigate()
-  const [warning, setWarning] = useState(false)
-  const [input, setInput] = useState(null)
-  const [input1, setInput1] = useState(null)
-  const [input2, setInput2] = useState(null)
-  const [input3, setInput3] = useState(null)
-  const [style, setStyle] = useState({})
-  const [style1, setStyle1] = useState({})
-  const [style2, setStyle2] = useState({})
-  const [style3, setStyle3] = useState({})
+  // const [input, setInput] = useState(null)
+  // const [input1, setInput1] = useState(null)
+  // const [input2, setInput2] = useState(null)
+  // const [input3, setInput3] = useState(null)
+  // const [style, setStyle] = useState({})
+  // const [style1, setStyle1] = useState({})
+  // const [style2, setStyle2] = useState({})
+  // const [style3, setStyle3] = useState({})
   const [name, setName] = useState("Username")
   const [place, setPlace] = useState("Username")
   
@@ -59,14 +58,10 @@ function SignUp() {
           <p onClick={()=> nameChange(setPlace, setName)}>Business</p>
         </div>
         <form action="" onSubmit={(e)=> handleSubmit(e)}>
-          <input type="text" name={name} id="1" placeholder= {place} style={style1} onInput={(e)=>inputVal(e, setInput1, setStyle1, warning)}/>
-          {input1}
-          <input type="email" name="Email" id="2" placeholder='Email' style={style2} onInput={(e)=>inputVal(e,setInput2, setStyle2, warning)}/>
-          {input2}
-          <input type="tel" name="PhoneNO" id="3" placeholder='Phone Number' style={style3} onInput={(e)=>inputVal(e,setInput3, setStyle3,warning)}/>
-          {input3}
-          <input type="password" name="Password" id="4" placeholder='Password' style={style} onInput={(e)=>strength(e,setInput, warning, setStyle)}/>
-          {input}
+          <input type="text" name={name} id="1" placeholder= {place}  />
+          <input type="email" name="Email" id="2" placeholder='Email' />
+          <input type="tel" name="PhoneNO" id="3" placeholder='Phone Number'/>
+          <input type="password" name="Password" id="4" placeholder='Password'/>
           <input type="text" name="ReferralCode" id="5" placeholder='Referral Code(optional)' />
           <p className='firstP'>By clicking the Sign Up button below, you agree to TradExpress <small>Terms and services</small></p>
           <button type="submit">Sign Up</button>
