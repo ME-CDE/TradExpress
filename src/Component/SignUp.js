@@ -47,7 +47,7 @@ function SignUp() {
     // }
     setTimeout(() => {
       link1("/Account/SignUp/Welcome")
-    }, 600);
+    }, 300);
 }
   return (
     <div className='signUp'>
