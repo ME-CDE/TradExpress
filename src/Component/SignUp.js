@@ -17,7 +17,7 @@ function SignUp() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // const dataBase = {Username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder}
+    const dataBase = {Username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder}
     // if (e.target[3].value.length < 8) {
     //     setWarning(true)
     //     setInput(<small style={{color:"red"}}>Password must exceed 8 characters</small>)
@@ -41,13 +41,11 @@ function SignUp() {
     //     setInput3(<small style={{color:"red"}}>Phone Number cannot be empty</small>)
     //     setStyle3({border: "1px solid red"})
     // }
-    // if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length > 8) {
-    //     const data = JSON.stringify(dataBase)
-    //     localStorage.setItem("UserData", data)
-    // }
-    setTimeout(() => {
-      link1("/Account/SignUp/Welcome")
-    }, 300);
+    if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length > 8) {
+        const data = JSON.stringify(dataBase)
+        localStorage.setItem("UserData", data)
+        link1("/Account/SignUp/Welcome")
+    }
 }
   return (
     <div className='signUp'>
