@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import {handleSubmit, strength, inputVal, nameChange, nameChange2} from './logic'
+import {strength, inputVal, nameChange, nameChange2} from './logic'
 function SignUp() {
   let link1 = useNavigate()
   const [warning, setWarning] = useState(false)
@@ -15,6 +15,41 @@ function SignUp() {
   const [name, setName] = useState("Username")
   const [place, setPlace] = useState("Username")
   
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const dataBase = {Username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder}
+    if (e.target[3].value.length < 8) {
+        setWarning(true)
+        setInput(<small style={{color:"red"}}>Password must exceed 8 characters</small>)
+        setStyle({border: "1px solid red"})
+        if (e.target[3].value === "") {
+            setInput(<small style={{color:"red"}}>Password cannot be empty</small>)
+        }
+    }else{
+        setWarning(false)
+        setStyle({})
+    }
+    if (!e.target[0].value) {
+        setInput1(<small style={{color:"red"}}>{e.target[0].placeholder} cannot be empty</small>)
+        setStyle1({border: "1px solid red"})
+    }
+    if (!e.target[1].value) {
+        setInput2(<small style={{color:"red"}}>Email cannot be empty</small>)
+        setStyle2({border: "1px solid red"})
+    }
+    if (!e.target[2].value) {
+        setInput3(<small style={{color:"red"}}>Phone Number cannot be empty</small>)
+        setStyle3({border: "1px solid red"})
+    }
+    if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length > 8) {
+        const data = JSON.stringify(dataBase)
+        localStorage.setItem("UserData", data)
+        setTimeout(() => {
+            link1("/Account/SignUp/Welcome")
+        }, 600);
+    }
+}
   return (
     <div className='signUp'>
       <div className="formDiv">
@@ -23,12 +58,12 @@ function SignUp() {
           <p onClick={()=> nameChange2(setPlace, setName)}>Individual</p>
           <p onClick={()=> nameChange(setPlace, setName)}>Business</p>
         </div>
-        <form action="" onSubmit={()=> link1("/Account/Signup/Welcome")}>
+        <form action="" onSubmit={(e)=> handleSubmit(e)}>
           <input type="text" name={name} id="1" placeholder= {place} style={style1} onInput={(e)=>inputVal(e, setInput1, setStyle1, warning)}/>
           {input1}
           <input type="email" name="Email" id="2" placeholder='Email' style={style2} onInput={(e)=>inputVal(e,setInput2, setStyle2, warning)}/>
           {input2}
-          <input type="tel" name="PhoneNO" id="3" placeholder='Phone Number' style={style3} onInput={(e)=>inputVal(e,setInput3, setStyle3, warning)}/>
+          <input type="tel" name="PhoneNO" id="3" placeholder='Phone Number' style={style3} onInput={(e)=>inputVal(e,setInput3, setStyle3,warning)}/>
           {input3}
           <input type="password" name="Password" id="4" placeholder='Password' style={style} onInput={(e)=>strength(e,setInput, warning, setStyle)}/>
           {input}

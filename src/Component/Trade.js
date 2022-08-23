@@ -22,7 +22,7 @@ function Trade() {
             <option value="XRP">Ripple(XRP)</option>
           </select>
           <label htmlFor="currency">Currency</label>
-          <select name="currency" id=""  onClick={(e)=> setCurrency(re=> re = e.target.value)}>
+          <select name="currency" id=""  onChange={(e)=> setCurrency(re=> re = e.target.value)}>
             <option value="NGN">Naira(NGN)</option>
             <option value="USD">Dollars(USD)</option>
           </select>

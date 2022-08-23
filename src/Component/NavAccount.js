@@ -19,7 +19,7 @@ const NavAccount = () => {
                     <p className='pNav'>Learn</p>
                     <button onClick ={navClick}><NavLink to={'/Account/Login'} className={({ isActive }) => isActive ? activeClassName : "notClicked"
                     }>Log in</NavLink></button>
-                    <button onClick ={navClick} ><NavLink  to={'/Account/'} className={({ isActive }) => isActive ? activeClassName : "notClicked"
+                    <button onClick ={navClick} ><NavLink  to={'/Account/SignUp'} className={({ isActive }) => isActive ? activeClassName : "notClicked"
                     }>Get Started</NavLink></button>
                 </div>
             </div>
