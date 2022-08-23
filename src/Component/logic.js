@@ -1,11 +1,6 @@
 const handleSubmit = (e, usenav, setWarning, setInput, setStyle, setStyle1, setStyle2, setStyle3, setInput1, setInput2, setInput3) => {
     e.preventDefault();
-    const dataBase = {}
-    dataBase[`${e.target[0].name}`] = e.target[0].value
-    dataBase[`${e.target[1].name}`] = e.target[1].value
-    dataBase[`${e.target[2].name}`] = e.target[2].value
-    dataBase[`${e.target[3].name}`] = e.target[3].value
-    dataBase[`${e.target[4].name}`] = e.target[4].value
+    const dataBase = {Username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder}
     if (e.target[3].value.length < 8) {
         setWarning(true)
         setInput(<small style={{color:"red"}}>Password must exceed 8 characters</small>)
@@ -17,17 +12,9 @@ const handleSubmit = (e, usenav, setWarning, setInput, setStyle, setStyle1, setS
         setWarning(false)
         setStyle({})
     }
-    if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length > 8) {
-        localStorage.setItem("UserData", JSON.stringify(dataBase))
-        setTimeout(() => {
-            usenav("/Account/SignUp/Welcome")
-        }, 600);
-    }
     if (!e.target[0].value) {
         setInput1(<small style={{color:"red"}}>{e.target[0].placeholder} cannot be empty</small>)
         setStyle1({border: "1px solid red"})
-    }else{
-
     }
     if (!e.target[1].value) {
         setInput2(<small style={{color:"red"}}>Email cannot be empty</small>)
@@ -37,10 +24,18 @@ const handleSubmit = (e, usenav, setWarning, setInput, setStyle, setStyle1, setS
         setInput3(<small style={{color:"red"}}>Phone Number cannot be empty</small>)
         setStyle3({border: "1px solid red"})
     }
+    if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length > 8) {
+        const data = JSON.stringify(dataBase)
+        localStorage.setItem("UserData", data)
+        setTimeout(() => {
+            usenav("/Account/SignUp/Welcome")
+        }, 600);
+    }
 }
 const strength = (e, setInput, warning, setStyle)=>{
     if (!e.target.value) {
         setInput(<small style={{color:"red"}}>Password cannot be empty</small>)
+        
     }
     if (e.target.value.length>=1 && e.target.value.length < 6) {
       setInput(<small style={{color:"red"}}>Password is TOO WEAK</small>)
@@ -70,8 +65,8 @@ const strength = (e, setInput, warning, setStyle)=>{
       setInput(<small style={{color:"limegreen"}}>Password is STRONG</small>)
     }
 }
-const inputVal = (e, setInput, setStyle) =>{
-    if(!e.target.value){
+const inputVal = (e, setInput, setStyle, warning) =>{
+    if(!e.target.value && warning){
         setInput(<small style={{color:"red"}}>{e.target.placeholder} cannot be empty</small>)
         setStyle({border: "1px solid red"})
     }else{
@@ -160,7 +155,7 @@ function handleSubmit2(e, setVal1, setVal2, setvalStyle1, setvalStyle2, link) {
         setVal2(<small style={{color:"red"}}>password cannot be empty</small>)
         setvalStyle2({border: "1px solid red"})
     }
-    if (!localStorage.getItem("UserData")) {
+    if (!localStorage.getItem("UserData") && (e.target[0].value && e.target[1].value)) {
         setVal1(<small style={{color:"red"}}>Invalid username</small>)
         setvalStyle1({border: "1px solid red"})
         setVal2(<small style={{color:"red"}}>Invalid Password</small>)

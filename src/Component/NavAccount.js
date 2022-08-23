@@ -1,18 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { useNavigate, NavLink, useLocation } from 'react-router-dom';
+import React from 'react'
+import { useNavigate, NavLink} from 'react-router-dom';
 import {change1, navClick} from './logic'
 const NavAccount = () => {
-    const [disable, setDisable] = useState('')
-    let location = useLocation();
     let link = useNavigate();
     let activeClassName = 'clicked';
-    useEffect(()=>{
-        if (location.pathname === '/Account/SignUp/Welcome') {
-            setDisable(re => re= "/Account/SignUp/Welcome")
-        }else{
-            setDisable(re => re= "/Account/SignUp")
-        }
-    },[location, disable])
     return (
         <div className="AccountNav">
             <div className="AccountnavBar">
@@ -28,7 +19,7 @@ const NavAccount = () => {
                     <p className='pNav'>Learn</p>
                     <button onClick ={navClick}><NavLink to={'/Account/Login'} className={({ isActive }) => isActive ? activeClassName : "notClicked"
                     }>Log in</NavLink></button>
-                    <button onClick ={navClick} ><NavLink  to={disable} className={({ isActive }) => isActive ? activeClassName : "notClicked"
+                    <button onClick ={navClick} ><NavLink  to={'/Account/'} className={({ isActive }) => isActive ? activeClassName : "notClicked"
                     }>Get Started</NavLink></button>
                 </div>
             </div>

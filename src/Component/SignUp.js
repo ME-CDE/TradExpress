@@ -24,11 +24,11 @@ function SignUp() {
           <p onClick={()=> nameChange(setPlace, setName)}>Business</p>
         </div>
         <form action="" onSubmit={(e)=> handleSubmit(e,link1, setWarning, setInput, setStyle, setStyle1, setStyle2, setStyle3, setInput1, setInput2, setInput3)}>
-          <input type="text" name={name} id="1" placeholder= {place} style={style1} onInput={(e)=>inputVal(e, setInput1, setStyle1)}/>
+          <input type="text" name={name} id="1" placeholder= {place} style={style1} onInput={(e)=>inputVal(e, setInput1, setStyle1, warning)}/>
           {input1}
-          <input type="email" name="Email" id="2" placeholder='Email' style={style2} onInput={(e)=>inputVal(e,setInput2, setStyle2)}/>
+          <input type="email" name="Email" id="2" placeholder='Email' style={style2} onInput={(e)=>inputVal(e,setInput2, setStyle2, warning)}/>
           {input2}
-          <input type="tel" name="PhoneNO" id="3" placeholder='Phone Number' style={style3} onInput={(e)=>inputVal(e,setInput3, setStyle3)}/>
+          <input type="tel" name="PhoneNO" id="3" placeholder='Phone Number' style={style3} onInput={(e)=>inputVal(e,setInput3, setStyle3, warning)}/>
           {input3}
           <input type="password" name="Password" id="4" placeholder='Password' style={style} onInput={(e)=>strength(e,setInput, warning, setStyle)}/>
           {input}
