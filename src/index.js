@@ -19,8 +19,8 @@ root.render(
         <Route index element={<Home/>}/>
         <Route path='/Account' element={<Account/>}>
           <Route path='/Account/SignUp' element={<Register/>}>
-          <Route index element={<SignUp/>}/>
-          <Route path='/Account/SignUp/Welcome' element={<Welcome/>}/>
+            <Route index element={<SignUp/>}/>
+            <Route path='/Account/SignUp/Welcome' element={<Welcome/>}/>
           </Route>
           <Route path='/Account/Login' element={<Login/>}/>
           <Route path='/Account/Trade' element={<Trade/>}/>
