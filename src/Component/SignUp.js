@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import {handleSubmit,inputVal, strength, nameChange, nameChange2} from './logic'
 function SignUp() {
   let link1 = useNavigate()
-  const [data, setData] = useState({})
   const [warning, setWarning] = useState(false)
   const [input, setInput] = useState(null)
   const [input1, setInput1] = useState(null)
@@ -25,7 +24,7 @@ function SignUp() {
           <p onClick={()=> nameChange2(setName)}>Individual</p>
           <p onClick={()=> nameChange(setName)}>Business</p>
         </div>
-        <form action="" onSubmit={(e)=> handleSubmit(e,link1, setWarning, setInput, setInput1, setInput2, setInput3, setStyle, setStyle1, setStyle2, setStyle3, setData, data)}>
+        <form action="" onSubmit={(e)=> handleSubmit(e,link1, setWarning, setInput, setInput1, setInput2, setInput3, setStyle, setStyle1, setStyle2, setStyle3)}>
           <input type="text" name={name[0]} id="1" placeholder= {name[1]}  style={style1} onInput={(e)=>inputVal(e, setInput1, setStyle1, warning)}/>
           {input1}
           <input type="email" name="Email" id="2" placeholder='Email' style={style2} onInput={(e)=>inputVal(e, setInput2, setStyle2, warning)}/>
