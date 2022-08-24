@@ -1,5 +1,6 @@
 const handleSubmit = (e,link, setInput, setInput1, setInput2, setInput3, setStyle, setStyle1, setStyle2, setStyle3) => {
     e.preventDefault();
+    e.target.Password.type = "text"
     if (e.target[3].value.length < 8) {
         setInput(<small style={{color:"red"}} className="smallError">Password must not be 8 characters</small>)
         setStyle({border: "1px solid red"})
@@ -23,7 +24,6 @@ const handleSubmit = (e,link, setInput, setInput1, setInput2, setInput3, setStyl
         setStyle3({border: "1px solid red"})
     }
     if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length >= 8) {
-        e.target.Password.type = "text"
         localStorage.clear()
         const data = JSON.stringify({username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder})
         localStorage.setItem("UserData", data)
