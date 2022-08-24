@@ -68,7 +68,7 @@
         max-height: calc(915px - 60px);
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center;overflow-y: scroll;
     }
     .formDiv{
         width: 600px;
@@ -440,9 +440,6 @@
 @media (max-height: 850px) {
     .signUp{
         height: 800px;
-    }
-    .login{
-        height: 660px;
     }
 }
 @media (max-height:700px) {
