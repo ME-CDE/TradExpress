@@ -176,6 +176,7 @@
         letter-spacing: 0px;
     }
     .login{
+        height: 700px;
         max-height: calc(100vh - 60px);
         overflow-y: hidden;
     }
