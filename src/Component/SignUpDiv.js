@@ -7,7 +7,7 @@ const SignUpDiv = () => {
     <div>
         <Routes>
         <Route index element={<SignUp/>}/>
-        <Route path='/Account/SignUp/Welcome' element={<Welcome/>}/>
+        <Route path='/Welcome' element={<Welcome/>}/>
         </Routes>
     </div>
   )
