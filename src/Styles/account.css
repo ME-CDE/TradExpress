@@ -441,6 +441,9 @@
     .signUp{
         height: 800px;
     }
+    .login{
+        height: 660px;
+    }
 }
 @media (max-height:700px) {
     .login .formDiv h2{
