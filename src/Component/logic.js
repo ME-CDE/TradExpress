@@ -1,6 +1,6 @@
 const handleSubmit = (e,link, setWarning, setInput, setInput1, setInput2, setInput3, setStyle, setStyle1, setStyle2, setStyle3) => {
     e.preventDefault();
-    if (e.target[3].value.length < 8) {
+    if (e.target[3].value.length < 9) {
         setWarning(true)
         setInput(<small style={{color:"red"}} className="smallError">Password must exceed 8 characters</small>)
         setStyle({border: "1px solid red"})
