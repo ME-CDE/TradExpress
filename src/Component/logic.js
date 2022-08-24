@@ -48,13 +48,7 @@ const strength = (e, setInput, warning, setStyle)=>{
         setStyle({border: "1px solid red"})
       }
     }
-    if ( e.target.value.length >= 8) {
-      setInput(<small style={{color:"limegreen"}} className="smallError">Password is OKAY</small>)
-      if (warning) {
-        setStyle({border: "1px solid limegreen"})
-      }
-    }
-    if ( e.target.value.length >= 10) {
+    if ( e.target.value.length >= 9) {
       setInput(<small style={{color:"limegreen"}} className="smallError">Password is GOOD</small>)
       if (warning) {
         setStyle({border: "1px solid limegreen"})
