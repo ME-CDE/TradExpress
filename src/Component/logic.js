@@ -1,14 +1,13 @@
-const handleSubmit = (e,link, setWarning, setInput, setInput1, setInput2, setInput3, setStyle, setStyle1, setStyle2, setStyle3) => {
+const handleSubmit = (e,link, setInput, setInput1, setInput2, setInput3, setStyle, setStyle1, setStyle2, setStyle3) => {
     e.preventDefault();
-    if (e.target[3].value.length < 9) {
-        setWarning(true)
-        setInput(<small style={{color:"red"}} className="smallError">Password must exceed 8 characters</small>)
+    if (e.target[3].value.length < 8) {
+        setInput(<small style={{color:"red"}} className="smallError">Password must not be 8 characters</small>)
         setStyle({border: "1px solid red"})
         if (e.target[3].value === "") {
             setInput(<small style={{color:"red"}} className="smallError">Password cannot be empty</small>)
         }
     }else{
-        setWarning(false)
+        setInput(null)
         setStyle({})
     }
     if (!e.target[0].value) {
@@ -23,48 +22,33 @@ const handleSubmit = (e,link, setWarning, setInput, setInput1, setInput2, setInp
         setInput3(<small style={{color:"red"}} className="smallError">Phone Number cannot be empty</small>)
         setStyle3({border: "1px solid red"})
     }
-    if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length > 8) {
+    if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length >= 8) {
+        localStorage.clear()
         const data = JSON.stringify({username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder})
         localStorage.setItem("UserData", data)
         link("/Account/SignUp/Welcome")
     }
 }
-const strength = (e, setInput, warning, setStyle)=>{
-    if (!e.target.value && warning) {
+const strength = (e, setInput, setStyle)=>{
+    if (!e.target.value) {
         setInput(<small style={{color:"red"}} className="smallError">Password cannot be empty</small>)
-    }
-    if (!e.target.value & !warning) {
-        setInput(null)
+        setStyle({border: "1px solid red"})
     }
     if (e.target.value.length>=1 && e.target.value.length < 6) {
       setInput(<small style={{color:"red"}} className="smallError">Password is TOO WEAK</small>)
-      if (warning) {
         setStyle({border: "1px solid red"})
-      }
     }
     if (e.target.value.length >= 6) {
       setInput(<small style={{color:"red"}} className="smallError">Password is WEAK</small>)
-      if (warning) {
-        setStyle({border: "1px solid red"})
-      }
+      setStyle({border: "1px solid red"})
     }
-    if ( e.target.value.length >= 9) {
+    if ( e.target.value.length >= 8) {
       setInput(<small style={{color:"limegreen"}} className="smallError">Password is GOOD</small>)
-      if (warning) {
-        setStyle({border: "1px solid limegreen"})
-      }
+      setStyle({border: "1px solid limegreen"})
     }
     if (e.target.value.length >= 12) {
       setInput(<small style={{color:"limegreen"}} className="smallError">Password is STRONG</small>)
-    }
-}
-const inputVal = (e, setInput, setStyle, warning) =>{
-    if(!e.target.value && warning){
-        setInput(<small style={{color:"red"}} className="smallError">{e.target.placeholder} cannot be empty</small>)
-        setStyle({border: "1px solid red"})
-    }else{
-        setInput(null)
-        setStyle({})
+      setStyle({border: "1px solid limegreen"})
     }
 }
 const percent = (num) => {
@@ -136,9 +120,8 @@ function nameChangeA2(setName) {
       setName("Buy")
     }
 }
-function handleSubmit2(e, setVal1, setVal2, setvalStyle1, setvalStyle2, link, setWarning) {
+function handleSubmit2(e, setVal1, setVal2, setvalStyle1, setvalStyle2, link) {
     e.preventDefault()
-    setWarning(true)
     if (!e.target[0].value) {
         setVal1(<small style={{color:"red"}} className="smallError">Username cannot be empty</small>)
         setvalStyle1({border: "1px solid red"})
@@ -153,22 +136,19 @@ function handleSubmit2(e, setVal1, setVal2, setvalStyle1, setvalStyle2, link, se
         setVal2(<small style={{color:"red"}} className="smallError">Invalid Password</small>)
         setvalStyle2({border: "1px solid red"})
     }
-    if(localStorage.getItem("UserData") && (e.target[0].value && e.target[1].value)){
-        setWarning(false)
-        // const userData = JSON.parse(localStorage.getItem("UserData"))
-        // if (userData[`${e.target[0].placeholder}`] !== e.target[0].value && e.target[0].value) {
-        //     setVal1(<small style={{color:"red"}} className="smallError">Invalid username</small>)
-        //     setvalStyle1({border: "1px solid red"})
-        // }
-        // if (userData.Password !== e.target[1].value && e.target[1].value) {
-        //     setVal2(<small style={{color:"red"}} className="smallError">Invalid Password</small>)
-        //     setvalStyle2({border: "1px solid red"})
-        // }
-        // if (userData[`${e.target[0].placeholder}`] === e.target[0].value && userData.Password === e.target[1].value) {
-        //     setTimeout(() => {
-        //         link("/App")
-        //     }, 600);
-        // }
-    }
+    // if(localStorage.getItem("UserData") && (e.target[0].value && e.target[1].value)){
+    //     const userData = JSON.parse(localStorage.getItem("UserData"))
+    //     if (userData[`${e.target[0].placeholder}`] !== e.target[0].value && e.target[0].value) {
+    //         setVal1(<small style={{color:"red"}} className="smallError">Invalid username</small>)
+    //         setvalStyle1({border: "1px solid red"})
+    //     }
+    //     if (userData.Password !== e.target[1].value && e.target[1].value) {
+    //         setVal2(<small style={{color:"red"}} className="smallError">Invalid Password</small>)
+    //         setvalStyle2({border: "1px solid red"})
+    //     }
+    //     if (userData[`${e.target[0].placeholder}`] === e.target[0].value && userData.Password === e.target[1].value) {
+    //         link("/App")
+    //     }
+    // }
 }
-export {handleSubmit, handleSubmit2, strength, inputVal, percent, percentLogic, nameChange, nameChange2, change, change1, navClick, nameChangeA, nameChangeA2}
+export {handleSubmit, handleSubmit2, strength, percent, percentLogic, nameChange, nameChange2, change, change1, navClick, nameChangeA, nameChangeA2}

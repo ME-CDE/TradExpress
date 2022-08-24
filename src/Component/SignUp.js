@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
-import {handleSubmit,inputVal, strength, nameChange, nameChange2} from './logic'
+import {handleSubmit, strength, nameChange, nameChange2} from './logic'
 function SignUp() {
   let link1 = useNavigate()
-  const [warning, setWarning] = useState(false)
   const [input, setInput] = useState(null)
   const [input1, setInput1] = useState(null)
   const [input2, setInput2] = useState(null)
@@ -24,14 +23,14 @@ function SignUp() {
           <p onClick={()=> nameChange2(setName)}>Individual</p>
           <p onClick={()=> nameChange(setName)}>Business</p>
         </div>
-        <form action="" onSubmit={(e)=> handleSubmit(e,link1, setWarning, setInput, setInput1, setInput2, setInput3, setStyle, setStyle1, setStyle2, setStyle3)}>
-          <input type="text" name={name[0]} id="1" placeholder= {name[1]}  style={style1} onInput={(e)=>inputVal(e, setInput1, setStyle1, warning)}/>
+        <form action="" onSubmit={(e)=> handleSubmit(e,link1, setInput, setInput1, setInput2, setInput3, setStyle, setStyle1, setStyle2, setStyle3)}>
+          <input type="text" name={name[0]} id="1" placeholder= {name[1]}  style={style1}/>
           {input1}
-          <input type="email" name="Email" id="2" placeholder='Email' style={style2} onInput={(e)=>inputVal(e, setInput2, setStyle2, warning)}/>
+          <input type="text" name="Email" id="2" placeholder='Email' style={style2}/>
           {input2}
-          <input type="tel" name="PhoneNO" id="3" placeholder='Phone Number'style={style3} onInput={(e)=>inputVal(e, setInput3, setStyle3, warning)}/>
+          <input type="text" name="PhoneNO" id="3" placeholder='Phone Number'style={style3}/>
           {input3}
-          <input type="password" name="Password" id="4" placeholder='Password' style={style} onInput={(e)=> strength(e, setInput, warning, setStyle)}/>
+          <input type="text" name="Password" id="4" placeholder='Password' style={style} onChange={(e)=> strength(e, setInput ,setStyle)}/>
           {input}
           <input type="text" name="ReferralCode" id="5" placeholder='Referral Code(optional)' />
           <p className='firstP'>By clicking the Sign Up button below, you agree to TradExpress <small>Terms and services</small></p>
