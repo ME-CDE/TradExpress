@@ -6,8 +6,8 @@ const SignUpDiv = () => {
   return (
     <div>
         <Routes>
-        <Route path='/' element={<SignUp/>}/>
-        <Route path='/Welcome' element={<Welcome/>}/>
+        <Route index element={<SignUp/>}/>
+        <Route path='/Account/SignUp/Welcome' element={<Welcome/>}/>
         </Routes>
     </div>
   )
