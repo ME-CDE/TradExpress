@@ -26,11 +26,11 @@ function SignUp() {
         <form action="" onSubmit={(e)=> handleSubmit(e,link1, setInput, setInput1, setInput2, setInput3, setStyle, setStyle1, setStyle2, setStyle3)}>
           <input type="text" name={name[0]} id="1" placeholder= {name[1]}  style={style1}/>
           {input1}
-          <input type="text" name="Email" id="2" placeholder='Email' style={style2}/>
+          <input type="email" name="Email" id="2" placeholder='Email' style={style2}/>
           {input2}
-          <input type="text" name="PhoneNO" id="3" placeholder='Phone Number'style={style3}/>
+          <input type="tel" name="PhoneNO" id="3" placeholder='Phone Number'style={style3}/>
           {input3}
-          <input type="text" name="Password" id="4" placeholder='Password' style={style} onChange={(e)=> strength(e, setInput ,setStyle)}/>
+          <input type="password" name="Password" id="4" placeholder='Password' style={style} onChange={(e)=> strength(e, setInput ,setStyle)}/>
           {input}
           <input type="text" name="ReferralCode" id="5" placeholder='Referral Code(optional)' />
           <p className='firstP'>By clicking the Sign Up button below, you agree to TradExpress <small>Terms and services</small></p>
