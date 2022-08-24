@@ -1,8 +1,7 @@
 const handleSubmit = (e,link, setInput, setInput1, setInput2, setInput3, setStyle, setStyle1, setStyle2, setStyle3) => {
     e.preventDefault();
-    e.target.Password.type = "text"
     if (e.target[3].value.length < 8) {
-        setInput(<small style={{color:"red"}} className="smallError">Password must not be 8 characters</small>)
+        setInput(<small style={{color:"red"}} className="smallError">Password cannot be less than 8 characters</small>)
         setStyle({border: "1px solid red"})
         if (e.target[3].value === "") {
             setInput(<small style={{color:"red"}} className="smallError">Password cannot be empty</small>)
@@ -24,10 +23,13 @@ const handleSubmit = (e,link, setInput, setInput1, setInput2, setInput3, setStyl
         setStyle3({border: "1px solid red"})
     }
     if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length >= 8) {
-        localStorage.clear()
-        const data = JSON.stringify({username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder})
-        localStorage.setItem("UserData", data)
-        link("/Account/SignUp/Welcome")
+        e.target.Password.type = "text"
+        if (e.target.Password.type === "text") {
+            localStorage.clear()
+            const data = JSON.stringify({username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder})
+            localStorage.setItem("UserData", data)
+            link("/Account/SignUp/Welcome")
+        }
     }
 }
 const strength = (e, setInput, setStyle)=>{
@@ -77,14 +79,14 @@ function nameChange(setName) {
     const head = document.querySelector(".formHead")
     if (head.className === "formHead") {
         head.classList.toggle('formHeadBusiness')
-        setName(["BusinessName", "Business Name"])
+        setName("Business Name")
     }
 }
 function nameChange2(setName) {
     const head = document.querySelector(".formHead")
     if (head.className === "formHead formHeadBusiness") {
         head.classList.toggle('formHeadBusiness')
-        setName(["Username", "Username"])
+        setName("Username")
     }
 }
 const change = ()=>{
