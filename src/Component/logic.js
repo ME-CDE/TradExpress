@@ -1,6 +1,5 @@
 const handleSubmit = (e,link, setWarning, setInput, setInput1, setInput2, setInput3, setStyle, setStyle1, setStyle2, setStyle3, setData, data) => {
     e.preventDefault();
-    setData(JSON.stringify({username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder}))
     if (e.target[3].value.length < 8) {
         setWarning(true)
         setInput(<small style={{color:"red"}} className="smallError">Password must exceed 8 characters</small>)
@@ -25,6 +24,7 @@ const handleSubmit = (e,link, setWarning, setInput, setInput1, setInput2, setInp
         setStyle3({border: "1px solid red"})
     }
     if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length > 8) {
+        setData(re=> re = JSON.stringify({username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder}))
         localStorage.setItem("UserData", data)
         link("/Account/SignUp/Welcome")
     }
