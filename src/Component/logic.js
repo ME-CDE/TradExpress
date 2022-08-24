@@ -139,19 +139,19 @@ function handleSubmit2(e, setVal1, setVal2, setvalStyle1, setvalStyle2, link) {
         setVal2(<small style={{color:"red"}} className="smallError">Invalid Password</small>)
         setvalStyle2({border: "1px solid red"})
     }
-    // if(localStorage.getItem("UserData") && (e.target[0].value && e.target[1].value)){
-    //     const userData = JSON.parse(localStorage.getItem("UserData"))
-    //     if (userData[`${e.target[0].placeholder}`] !== e.target[0].value && e.target[0].value) {
-    //         setVal1(<small style={{color:"red"}} className="smallError">Invalid username</small>)
-    //         setvalStyle1({border: "1px solid red"})
-    //     }
-    //     if (userData.Password !== e.target[1].value && e.target[1].value) {
-    //         setVal2(<small style={{color:"red"}} className="smallError">Invalid Password</small>)
-    //         setvalStyle2({border: "1px solid red"})
-    //     }
-    //     if (userData[`${e.target[0].placeholder}`] === e.target[0].value && userData.Password === e.target[1].value) {
-    //         link("/App")
-    //     }
-    // }
+    if(localStorage.getItem("UserData") && (e.target[0].value && e.target[1].value)){
+        const userData = JSON.parse(localStorage.getItem("UserData"))
+        if (userData.username !== e.target[0].value && e.target[0].value) {
+            setVal1(<small style={{color:"red"}} className="smallError">Invalid username</small>)
+            setvalStyle1({border: "1px solid red"})
+        }
+        if (userData.password !== e.target[1].value && e.target[1].value) {
+            setVal2(<small style={{color:"red"}} className="smallError">Invalid Password</small>)
+            setvalStyle2({border: "1px solid red"})
+        }
+        if (userData.username === e.target[0].value && userData.password === e.target[1].value) {
+            link("/App")
+        }
+    }
 }
 export {handleSubmit, handleSubmit2, strength, percent, percentLogic, nameChange, nameChange2, change, change1, navClick, nameChangeA, nameChangeA2}
