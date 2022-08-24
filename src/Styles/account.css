@@ -178,7 +178,6 @@
     .login{
         height: 700px;
         max-height: calc(100vh - 60px);
-        overflow-y: hidden;
     }
     .login .formDiv{
         padding-bottom: 70px;
@@ -232,6 +231,10 @@
     .lastP{
         margin: 0 auto;
         text-align: center;
+    }
+    .trade{
+        height: 760px;
+        max-height: calc(100vh - 60px);
     }
     .trade label, .trade h3{
         font: normal normal 500 20px/26px Roboto;
@@ -450,6 +453,11 @@
         height: 800px;
     }
 }
+@media (max-height:750px) {
+    .trade{
+        max-height: 700px;
+    }
+}
 @media (max-height:700px) {
     .login .formDiv h2{
         margin: 30px 0 40px;
@@ -461,6 +469,11 @@
 @media (max-height:680px) {
     .login .formDiv{
         width: 500px;
+    }
+}
+@media (max-height: 600px) {
+    .login{
+        max-height: 540px;
     }
 }
 @media (max-height: 570px) {
