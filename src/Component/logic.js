@@ -27,7 +27,7 @@ const handleSubmit = (e,link, setInput, setInput1, setInput2, setInput3, setStyl
         setInput2(<small style={{color:"red"}} className="smallError">This email already exist</small>)
         setStyle2({border: "1px solid red"})
     }
-    if ((data && (data.email !== e.target[1].value)) || (e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length >= 8) {
+    if ((data.email !== e.target[1].value) && (e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length >= 8) {
         if (e.target.Password.type === "text") {
             localStorage.clear()
             const data1 = JSON.stringify({username:e.target[0].value, email:e.target[1].value, password: e.target[3].value, accountType: e.target[0].placeholder})
