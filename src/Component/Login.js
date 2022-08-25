@@ -14,7 +14,7 @@ function Login() {
         <form action="" onSubmit={(e)=> handleSubmit2(e, setVal1, setVal2, setvalStyle1, setvalStyle2, link)}>
           <input type="text" name="" id="" placeholder='Username' style={valStyle1}/>
           {val1}
-          <input type="password" name="password" id="password" placeholder='Password' style={valStyle2}/>
+          <input type="text" name="password" id="pass" placeholder='Password' style={valStyle2}/>
           {val2}
           <div className="rememberDiv">
             <div className="rememberIconDiv">

@@ -24,7 +24,6 @@ const handleSubmit = (e,link, setInput, setInput1, setInput2, setInput3, setStyl
         setStyle3({border: "1px solid red"})
     }
     if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length >= 8) {
-        e.target.Password.type = "text"
         if(data1 && data1.email === e.target[1].value){
             setInput2(<small style={{color:"red"}} className="smallError">This email already exist</small>)
             setStyle2({border: "1px solid red"})
