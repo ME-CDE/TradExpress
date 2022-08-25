@@ -29,7 +29,7 @@ function SignUp() {
           {input2}
           <input type="tel" name="PhoneNO" id="3" placeholder='Phone Number'style={style3}/>
           {input3}
-          <input type="text" name="Password" id="pass" placeholder='Password' style={style} onChange={(e)=> strength(e, setInput ,setStyle)}/>
+          <input type="password" name="Password" id="pass" placeholder='Password' style={style} onChange={(e)=> strength(e, setInput ,setStyle)}/>
           {input}
           <input type="text" name="ReferralCode" id="5" placeholder='Referral Code(optional)' />
           <p className='firstP'>By clicking the Sign Up button below, you agree to TradExpress <small>Terms and services</small></p>

@@ -1,5 +1,6 @@
 const handleSubmit = (e,link, setInput, setInput1, setInput2, setInput3, setStyle, setStyle1, setStyle2, setStyle3) => {
     e.preventDefault();
+    const data = JSON.parse(localStorage.getItem("UserData"))
     if (e.target[3].value.length < 8) {
         setInput(<small style={{color:"red"}} className="smallError">Password cannot be less than 8 characters</small>)
         setStyle({border: "1px solid red"})
@@ -22,7 +23,11 @@ const handleSubmit = (e,link, setInput, setInput1, setInput2, setInput3, setStyl
         setInput3(<small style={{color:"red"}} className="smallError">Phone Number cannot be empty</small>)
         setStyle3({border: "1px solid red"})
     }
-    if ((e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length >= 8) {
+    if(data && data.email === e.target[1].value){
+        setInput2(<small style={{color:"red"}} className="smallError">This email already exist</small>)
+        setStyle2({border: "1px solid red"})
+    }
+    if ((data && (data.email !== e.target[1].value)) && (e.target[0].value || e.target[1].value || e.target[2].value || e.target[3].value) && e.target[3].value.length >= 8) {
         e.target.Password.type = "text"
         if (e.target.Password.type === "text") {
             localStorage.clear()
